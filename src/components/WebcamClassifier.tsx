@@ -7,6 +7,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { FocusState } from '../types';
 import { Camera, CameraOff, RefreshCw, AlertTriangle, MonitorPlay, Zap, Sliders } from 'lucide-react';
 
+// Props and the global declaration - Defines what App.tsx must pass in, and tells TypeScript about the CDN libraries.
 interface WebcamClassifierProps {
   modelUrl: string;
   onStateDetected: (state: FocusState, immediate?: boolean) => void;
@@ -28,6 +29,8 @@ export default function WebcamClassifier({
   currentState,
   onSensingChange,
 }: WebcamClassifierProps) {
+
+  // Refs and state - Seven refs holding objects, six state variables driving the display.
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const modelRef = useRef<any>(null);
