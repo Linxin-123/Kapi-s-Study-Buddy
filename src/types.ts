@@ -3,10 +3,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+// FocusState — the heart of the app  Declares the only four states a student can be in.
 export type FocusState = 'focused' | 'distracted' | 'absent' | 'stretch';
 
 export type PomodoroStatus = 'idle' | 'work' | 'break';
 
+//UserSettings - Everything the user can configure.
 export interface UserSettings {
   mascotName: string;
   userName?: string; // the student's own nickname — header becomes "Lynn's Study Buddy"
@@ -27,6 +29,7 @@ export interface FocusSnapshot {
   state: FocusState;
 }
 
+// DailyStats — one record per day The shape of everything saved to localStorage, one object per calendar day.
 export interface DailyStats {
   date: string; // YYYY-MM-DD
   totalFocusTime: number; // seconds
